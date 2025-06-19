@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理学療法士のための業務委託契約インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .flowchart-box {
+            border: 2px solid;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+        @media (min-width: 768px) {
+            .flowchart-arrow {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+    
+    <!-- 
+    Palette Selection: "Brilliant Blues"
+    Primary Action/Chart: #0079FF
+    Headers/Accents: #004AAD
+    Secondary/Highlights: #89CFF3
+    Callouts/Contrast: #FFD700
+    Background: #F8F9FA
+    Text: #212529
+    -->
+    
+    <!-- 
+    Narrative Plan:
+    1. Introduction: Hook the audience by acknowledging the rise of freelance work for therapists.
+    2. Core Concept Demystified: Break down the confusing term "業務委託契約" into its two true legal forms.
+    3. The Critical Choice (請負 vs. 準委任): Visually compare the two contract types, focusing on responsibility.
+    4. The Money Trail: Explain the practical financial aspects of withholding tax and revenue stamps in a simple, visual way.
+    5. Final Checklist: Provide a simple, actionable summary.
+    -->
+
+    <!-- 
+    Visualization Choices:
+    - Concept Breakdown (業務委託 -> 請負/準委任): Goal: Organize. Method: HTML/CSS Flowchart. Justification: Clearest way to show a conceptual hierarchy without SVG.
+    - Responsibility Comparison (請負 vs. 準委任): Goal: Compare. Method: Chart.js Horizontal Bar Chart. Justification: Provides an immediate visual sense of the difference in legal liability. Uses Canvas.
+    - Withholding Tax (源泉徴収): Goal: Inform. Method: Chart.js Doughnut Chart. Justification: Excellent for showing a part-of-whole relationship (tax deduction). Uses Canvas.
+    - Revenue Stamp (収入印紙) Decision: Goal: Organize. Method: HTML/CSS Decision Tree. Justification: Guides the user through a decision process logically. No SVG/Mermaid.
+    - Final Takeaways: Goal: Inform. Method: Styled HTML List. Justification: Clean, simple, and effective for a summary.
+    
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this document. All visualizations are rendered using Chart.js on Canvas or structured HTML/CSS with Tailwind.
+    -->
+
+</head>
+<body class="bg-[#F8F9FA]">
+
+    <div class="container mx-auto max-w-5xl p-4 sm:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#004AAD]">理学療法士のための業務委託契約</h1>
+            <p class="text-xl md:text-2xl text-[#0079FF] mt-2">これだけは押さえる！基礎知識インフォグラフィック</p>
+            <p class="mt-4 max-w-3xl mx-auto text-gray-600">
+                働き方が多様化する今、フリーランスや業務委託は大きなチャンスです。しかし、契約には見えないリスクも。このガイドで「知らなかった」をなくし、安心して専門性を発揮しましょう。
+            </p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-[#004AAD] text-center mb-6">STEP 1: 「業務委託」の正体を知る</h2>
+                <div class="md:flex items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flowchart-box border-[#004AAD] bg-blue-50 w-full md:w-1/4">
+                        <p class="font-bold text-lg">業務委託契約</p>
+                        <p class="text-sm">（法律上の正式名称ではない）</p>
+                    </div>
+                    <div class="flowchart-arrow text-[#004AAD]">↓</div>
+                    <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+                        <div class="flowchart-box border-[#0079FF] bg-blue-50 flex-1">
+                            <span class="text-xs font-bold bg-[#0079FF] text-white px-2 py-1 rounded-full mb-2">タイプA</span>
+                            <p class="font-bold text-xl">請負契約</p>
+                            <p class="text-sm font-semibold text-[#0079FF]">ゴール：仕事の「完成」</p>
+                        </div>
+                        <div class="flowchart-box border-[#89CFF3] bg-gray-50 flex-1">
+                             <span class="text-xs font-bold bg-[#89CFF3] text-[#212529] px-2 py-1 rounded-full mb-2">タイプB</span>
+                            <p class="font-bold text-xl">準委任契約</p>
+                            <p class="text-sm font-semibold text-[#89CFF3]">ゴール：業務の「遂行」</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-gray-700 max-w-2xl mx-auto">皆さんが使う「業務委託」は、法律の世界では主にこの2種類に分かれます。契約書を読むとき、自分の仕事のゴールは「何かを完成させること」か、「専門業務を行うこと」かを自問自答するのが最初のステップです。</p>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-[#004AAD] text-center mb-6">STEP 2: あなたの責任はどっち？ 請負 vs 準委任</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="chart-container h-48">
+                            <canvas id="responsibilityChart"></canvas>
+                        </div>
+                        <p class="mt-4 text-sm text-center text-gray-600">法的責任の重さを視覚的に比較。請負契約は「成果物を完成させる責任」と「欠陥があった場合の責任（契約不適合責任）」という重い責任を負います。</p>
+                    </div>
+                    <div>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-lg bg-blue-50 border-l-4 border-[#0079FF]">
+                                <h3 class="font-bold text-lg text-[#0079FF]">請負契約の責任</h3>
+                                <p class="text-sm text-gray-800">「<strong class="text-[#0079FF]">仕事の完成責任</strong>」＋「<strong class="text-[#0079FF]">契約不適合責任</strong>」。マニュアル作成など、成果物が求められる業務で適用されます。完成しない、または欠陥があれば、修正・減額・損害賠償のリスクがあります。</p>
+                            </div>
+                            <div class="p-4 rounded-lg bg-gray-50 border-l-4 border-[#89CFF3]">
+                                <h3 class="font-bold text-lg text-[#89CFF3]">準委任契約の責任</h3>
+                                <p class="text-sm text-gray-800">「<strong class="text-[#89CFF3]">善管注意義務</strong>」。訪問リハビリなど、業務行為そのものが目的の場合に適用。「プロとして通常期待される注意を払う義務」であり、結果の保証までは求められません。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-[#004AAD] text-center mb-6">STEP 3: お金の話【税金と印紙】</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-4">源泉徴収 (10.21%)</h3>
+                        <div class="chart-container h-64 relative">
+                            <canvas id="taxChart"></canvas>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                <span class="text-3xl font-bold text-[#004AAD]">10.21%</span>
+                                <span class="text-gray-600">が天引きされる</span>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-700">報酬からは所得税が天引きされます。これは税金の前払い。年間所得によっては<strong class="text-[#0079FF]">確定申告</strong>で精算が必要です。<br><strong>Pro Tip:</strong> 請求書で消費税を分ければ、税抜額が源泉徴収の対象となり、手取りが増えます。</p>
+                    </div>
+
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-4">収入印紙は必要？</h3>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div class="flowchart-box border-[#0079FF] bg-white w-full">
+                                <p>あなたの契約は<br>「仕事の完成」が目的？</p>
+                            </div>
+                            <div class="flex">
+                                <div class="w-1/2 text-center">
+                                    <p class="font-bold text-green-600 my-2">NO (準委任)</p>
+                                    <div class="flowchart-arrow text-green-600">↓</div>
+                                    <div class="flowchart-box border-green-500 bg-green-50">
+                                        <p class="font-bold text-green-700">原則、<br>印紙は不要</p>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 text-center">
+                                    <p class="font-bold text-red-600 my-2">YES (請負)</p>
+                                    <div class="flowchart-arrow text-red-600">↓</div>
+                                    <div class="flowchart-box border-red-500 bg-red-50">
+                                        <p class="font-bold text-red-700">印紙が必要<br>(200円〜)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-700"><strong class="text-[#0079FF]">Pro Tip:</strong> <strong class="text-[#FFD700] bg-[#004AAD] px-2 py-1 rounded">電子契約</strong>なら、請負契約でも印紙は一切不要。コストも手間も削減できます。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bg-[#004AAD] text-white p-8 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-center mb-6">最終チェックリスト：サインする、その前に！</h2>
+                <div class="max-w-2xl mx-auto space-y-4">
+                    <div class="flex items-start">
+                        <span class="text-2xl text-[#FFD700] mr-4">1.</span>
+                        <div>
+                            <h3 class="font-bold text-xl">契約タイプを自問する</h3>
+                            <p>私の仕事は「完成（請負）」か「遂行（準委任）」か？ これで責任の重さが決まる。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl text-[#FFD700] mr-4">2.</span>
+                        <div>
+                            <h3 class="font-bold text-xl">源泉徴収を覚悟する</h3>
+                            <p>報酬から10.21%引かれるのが基本。確定申告の準備も忘れずに。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl text-[#FFD700] mr-4">3.</span>
+                        <div>
+                            <h3 class="font-bold text-xl">迷ったら、安易にサインしない</h3>
+                            <p>不明な点は必ず質問する。あなたのキャリアを守る最後の砦は、あなた自身です。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const brilliantBlues = {
+                deep: '#004AAD',
+                bright: '#0079FF',
+                light: '#89CFF3',
+                gold: '#FFD700'
+            };
+
+            const tooltipConfig = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        },
+                        bodyFont: {
+                            family: "'Noto Sans JP', sans-serif"
+                        },
+                        titleFont: {
+                            family: "'Noto Sans JP', sans-serif"
+                        }
+                    },
+                    legend: {
+                       labels: {
+                           font: {
+                               family: "'Noto Sans JP', sans-serif"
+                           }
+                       }
+                    }
+                }
+            };
+            
+            function wrapLabels(label, maxLength) {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (let i = 0; i < words.length; i++) {
+                    if ((currentLine + words[i]).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += words[i] + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            const respCtx = document.getElementById('responsibilityChart');
+            if(respCtx) {
+                new Chart(respCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['請負契約の責任', '準委任契約の責任'],
+                        datasets: [{
+                            label: '法的責任のレベル',
+                            data: [90, 60],
+                            backgroundColor: [brilliantBlues.bright, brilliantBlues.light],
+                            borderColor: [brilliantBlues.bright, brilliantBlues.light],
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        }]
+                    },
+                    options: {
+                        ...tooltipConfig,
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                           ...tooltipConfig.plugins,
+                           legend: {
+                               display: false
+                           }
+                        },
+                        scales: {
+                            x: {
+                                display: false,
+                                max: 100
+                            },
+                            y: {
+                                ticks: {
+                                    font: {
+                                       size: 14,
+                                       family: "'Noto Sans JP', sans-serif",
+                                       weight: 'bold'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const taxCtx = document.getElementById('taxChart');
+            if(taxCtx) {
+                 new Chart(taxCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['あなたの手取り', '源泉徴収 (国へ)'],
+                        datasets: [{
+                            data: [89.79, 10.21],
+                            backgroundColor: [brilliantBlues.bright, brilliantBlues.gold],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        ...tooltipConfig,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%'
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
